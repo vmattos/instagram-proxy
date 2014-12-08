@@ -2,3 +2,4 @@ node_modules
 npm-debug.log
 instagram-proxy-env.sh
 .idea/
+export-instagram-ids.sh

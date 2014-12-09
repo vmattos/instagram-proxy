@@ -5,6 +5,15 @@ INSTAGRAM_CLIENT_ID = process.env.INSTAGRAM_CLIENT_ID
 
 module.exports = function(app) {
   
-  app.get('/', proxy.firstPage(INSTAGRAM_CLIENT_ID, INSTAGRAM_USER_ID))
-  app.get('/all', proxy.allPages(INSTAGRAM_CLIENT_ID, INSTAGRAM_USER_ID))
+  app.get('/', proxy.firstPage(INSTAGRAM_CLIENT_ID, INSTAGRAM_USER_ID), function(req, res) {
+    var firstPage = req.instagram.firstPage
+
+    res.send({data: firstPage})
+  })
+
+  app.get('/all', proxy.allPages(INSTAGRAM_CLIENT_ID, INSTAGRAM_USER_ID), function(req, res) {
+    var allPages = req.instagram.allPages
+
+    res.send(allPages)
+  })
 }

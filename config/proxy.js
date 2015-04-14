@@ -23,7 +23,7 @@ module.exports = function(app) {
   app.get('/tag/:tag', proxy.firstTagPage(INSTAGRAM_ACCESS_TOKEN), function(req, res) {
      var firstTagPage = req.instagram.firstTagPage;
 
-      res.setHeader("Acess-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.send(firstTagPage);
   });
 };
